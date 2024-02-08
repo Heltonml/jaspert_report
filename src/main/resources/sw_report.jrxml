@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.0.final using JasperReports Library version 6.21.0-4f56c4f36cd19e17675219a9ac4692d5f0f13b06  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sw_report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6c33c28f-8a26-4d21-a9f7-5add778efb96">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="swapi_test"/>
+	<parameter name="createdBy" class="java.lang.String"/>
+	<queryString language="json">
+		<![CDATA[results]]>
+	</queryString>
+	<field name="name" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="name"/>
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
+	<field name="model" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="model"/>
+		<fieldDescription><![CDATA[model]]></fieldDescription>
+	</field>
+	<field name="manufacturer" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="manufacturer"/>
+		<fieldDescription><![CDATA[manufacturer]]></fieldDescription>
+	</field>
+	<field name="cost_in_credits" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="cost_in_credits"/>
+		<fieldDescription><![CDATA[cost_in_credits]]></fieldDescription>
+	</field>
+	<field name="length" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="length"/>
+		<fieldDescription><![CDATA[length]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="35" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="258" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="200" width="154" height="23" uuid="a77b7716-f604-48d4-9d5d-5b96e68e2f45"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{createdBy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="200" width="100" height="23" uuid="28a2e7d6-25ce-4896-9ccc-0569a5e73262">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37fbd6d4-1826-4a28-bb79-35fcafe3bea1"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Created By:]]></text>
+			</staticText>
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="10" y="7" width="534" height="170" uuid="223458f7-e456-41f1-9d7c-133514600eab"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
+						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<valueExpression><![CDATA[Double.valueOf($F{cost_in_credits})]]></valueExpression>
+						<labelExpression><![CDATA[$F{name}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="95103e2e-cd12-482c-8be9-f55062b96cc6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c7ab2202-43f1-419d-9ecd-087e1d531f77"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="30" uuid="afb630e2-1223-4686-ab5a-b72d348502d4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="05761a5f-4c25-4dcd-8a19-43753deb8435"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Model]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="150" height="30" uuid="f00fd85d-8944-473a-8791-64770a97660c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4f01ee2b-fe16-464d-be9a-fdba1cc576b2"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Manufacturer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="0" width="104" height="30" uuid="38fbff85-6109-4191-8ab5-8aef49cdaedb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7e0e1130-3aa8-489f-8cb6-a25e3b262c7f"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Cost in credits]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="454" y="0" width="100" height="30" uuid="ddda76d6-9143-43b3-8c38-9ae89e3e65e9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37fbd6d4-1826-4a28-bb79-35fcafe3bea1"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Length]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="71" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="bec8fef7-b4f3-42b9-8578-00ca34661679">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c7ab2202-43f1-419d-9ecd-087e1d531f77"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="30" uuid="292a23c4-a344-427c-8145-67c3da7d0f24">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="05761a5f-4c25-4dcd-8a19-43753deb8435"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{model}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="150" height="30" uuid="3cfb78c9-c599-471e-bb05-688ecaff188d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4f01ee2b-fe16-464d-be9a-fdba1cc576b2"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{manufacturer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="104" height="30" uuid="621e33dd-ff2b-4e6a-9dae-1046ffacf53f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7e0e1130-3aa8-489f-8cb6-a25e3b262c7f"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cost_in_credits}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="0" width="100" height="30" uuid="b7541df0-0b82-4fe3-8da0-0b0d3dc387a8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c20b009b-05f4-43ba-a387-64726d0d672c"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{length}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="510" y="0" width="43" height="22" uuid="4db6ed33-affa-4d0d-8179-a49c83fe34af"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="0" width="100" height="22" uuid="ba541bd2-76ac-45b2-96d6-64bf7b3658f6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37fbd6d4-1826-4a28-bb79-35fcafe3bea1"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Total lines:]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="66" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
