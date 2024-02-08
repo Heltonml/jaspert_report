@@ -7,8 +7,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.jaspert_report.models.Starship;
-import com.jaspert_report.services.StarshipService;
+import com.jaspert_report.models.Planet;
+import com.jaspert_report.services.PlanetService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,32 +25,32 @@ import org.springframework.http.HttpStatus;
 import java.io.ByteArrayOutputStream;
 
 @RestController
-@RequestMapping(path="/jreport")
+@RequestMapping(path="/report")
 public class MainController {
     
     @Autowired 
-    private StarshipService starshipService;
+    private PlanetService planetService;
 
-    public List<Starship> getStarships() {
-        List<Starship> starships = starshipService.getStarshipsFromAPI();
-        return starships;
+    public List<Planet> getPlanets() {
+        List<Planet> planets = planetService.getPlanetsFromAPI();
+        return planets;
     }
 
     @GetMapping("/")
     public @ResponseBody String getHello(){
-        List<Starship> starships = getStarships();
+        List<Planet> planets = getPlanets();
 
-        for (Starship element : starships) {
-            System.out.println(element.getName());
+        for (Planet planet : planets) {
+            System.out.println(planet.getName());
         }
         
         return "index";
     }
 
     @GetMapping(value = "/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
-    public ResponseEntity<byte[]> exportReport() {
+    public ResponseEntity<byte[]> exportPdfReport() {
         try {
-            JasperPrint jasperPrint = starshipService.handleJReport();
+            JasperPrint jasperPrint = planetService.handleJReport();
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, byteArrayOutputStream);

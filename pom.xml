@@ -62,7 +62,7 @@
         </dependency>
 	</dependencies>
 	<build>
-        <finalName>jasper_report</finalName>
+        <finalName>jasper</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
