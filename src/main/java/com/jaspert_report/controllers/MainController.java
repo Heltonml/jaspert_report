@@ -23,6 +23,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import java.io.ByteArrayOutputStream;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 
 @RestController
 @RequestMapping(path="/report")
@@ -54,6 +57,29 @@ public class MainController {
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, byteArrayOutputStream);
+            byte[] reportBytes = byteArrayOutputStream.toByteArray();
+
+            return ResponseEntity.ok()
+                    .contentLength(reportBytes.length)
+                    .body(reportBytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @GetMapping(value = "/xls", produces = "application/vnd.ms-excel")
+    public ResponseEntity<byte[]> exportReportAsXls() {
+        try {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            JRXlsExporter exporter = new JRXlsExporter();
+
+            JasperPrint jasperPrint = planetService.handleJReport();
+
+            exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
+            exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(byteArrayOutputStream));
+            exporter.exportReport();
+
             byte[] reportBytes = byteArrayOutputStream.toByteArray();
 
             return ResponseEntity.ok()

@@ -141,12 +141,16 @@
 				</barPlot>
 			</xyBarChart>
 			<textField>
-				<reportElement x="10" y="10" width="260" height="30" uuid="d44b6f9f-f860-4198-85f7-1d77a386523f"/>
+				<reportElement x="119" y="10" width="260" height="30" uuid="d44b6f9f-f860-4198-85f7-1d77a386523f"/>
 				<textElement>
 					<font size="18" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="0" y="0" width="110" height="80" uuid="3f1af5c0-173a-4048-9155-9dffb7dcc52e"/>
+				<imageExpression><![CDATA["classpath:images/sw_logo.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<columnHeader>
