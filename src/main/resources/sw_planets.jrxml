@@ -66,13 +66,13 @@
 		<property name="net.sf.jasperreports.json.field.expression" value="name"/>
 		<fieldDescription><![CDATA[name]]></fieldDescription>
 	</field>
-	<field name="rotation_period" class="java.lang.Integer">
-		<property name="net.sf.jasperreports.json.field.expression" value="rotation_period"/>
-		<fieldDescription><![CDATA[rotation_period]]></fieldDescription>
+	<field name="rotation" class="java.lang.Integer">
+		<property name="net.sf.jasperreports.json.field.expression" value="rotation"/>
+		<fieldDescription><![CDATA[rotation]]></fieldDescription>
 	</field>
-	<field name="orbital_period" class="java.lang.Integer">
-		<property name="net.sf.jasperreports.json.field.expression" value="orbital_period"/>
-		<fieldDescription><![CDATA[orbital_period]]></fieldDescription>
+	<field name="orbital" class="java.lang.Integer">
+		<property name="net.sf.jasperreports.json.field.expression" value="orbital"/>
+		<fieldDescription><![CDATA[orbital]]></fieldDescription>
 	</field>
 	<field name="diameter" class="java.lang.Integer">
 		<property name="net.sf.jasperreports.json.field.expression" value="diameter"/>
@@ -116,7 +116,7 @@
 			</textField>
 			<xyBarChart>
 				<chart evaluationTime="Report">
-					<reportElement x="10" y="82" width="534" height="200" uuid="3ad15d5a-9700-4680-adfe-f14e3bd8163e"/>
+					<reportElement x="10" y="82" width="534" height="200" uuid="e885174e-482e-4ea5-a650-0fc34eded8f9"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
@@ -124,7 +124,7 @@
 				<xyDataset>
 					<xySeries>
 						<seriesExpression><![CDATA[$F{name}]]></seriesExpression>
-						<xValueExpression><![CDATA[$F{rotation_period}]]></xValueExpression>
+						<xValueExpression><![CDATA[$F{rotation}]]></xValueExpression>
 						<yValueExpression><![CDATA[$F{diameter}]]></yValueExpression>
 						<labelExpression><![CDATA[$F{name}]]></labelExpression>
 					</xySeries>
@@ -183,25 +183,25 @@
 				<text><![CDATA[Orbital period]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="264" y="0" width="79" height="20" forecolor="#000000" uuid="a99ee811-ef16-4668-b067-83f8c736acb2">
+				<reportElement style="Column header" positionType="Float" x="240" y="0" width="96" height="20" forecolor="#000000" uuid="a99ee811-ef16-4668-b067-83f8c736acb2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ce8eda45-a1cc-4c45-8ebe-02bc85949cf6"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Right">
 					<font fontName="SansSerif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Diameter]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="343" y="0" width="79" height="20" forecolor="#000000" uuid="231c110c-9963-40f1-9c2b-5089f6f0f67c">
+				<reportElement style="Column header" positionType="Float" x="355" y="0" width="75" height="20" forecolor="#000000" uuid="231c110c-9963-40f1-9c2b-5089f6f0f67c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d65cbccd-71d7-433b-9f1f-dc6e03771e35"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Climate]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="422" y="0" width="127" height="20" forecolor="#000000" uuid="a54588e8-0f99-4b1f-ad54-17cc3dd63cee">
+				<reportElement style="Column header" positionType="Float" x="430" y="0" width="119" height="20" forecolor="#000000" uuid="a54588e8-0f99-4b1f-ad54-17cc3dd63cee">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="29b23fd8-4498-43a8-bf84-0273a97e496a"/>
 				</reportElement>
 				<textElement>
@@ -229,7 +229,7 @@
 				<textElement>
 					<font fontName="SansSerif" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{rotation_period}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{rotation}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
 				<reportElement style="Detail" positionType="Float" x="171" y="0" width="79" height="20" uuid="64d608c2-cb24-4756-84c8-6fd2959f3f32">
@@ -238,28 +238,29 @@
 				<textElement>
 					<font fontName="SansSerif" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{orbital_period}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{orbital}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="264" y="0" width="79" height="20" uuid="e358ddd1-5622-497d-a722-49dc9a56596f">
+				<reportElement style="Detail" positionType="Float" x="255" y="0" width="79" height="20" uuid="e358ddd1-5622-497d-a722-49dc9a56596f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ce8eda45-a1cc-4c45-8ebe-02bc85949cf6"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Right">
 					<font fontName="SansSerif" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{diameter}]]></textFieldExpression>
+				<!-- <textFieldExpression><![CDATA[$F{diameter}]]></textFieldExpression> -->
+                <textFieldExpression><![CDATA[$F{diameter}.toString().concat(" yd")]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="343" y="0" width="79" height="20" uuid="a7003c51-ff05-4cb7-8700-08166c9ac18e">
+				<reportElement style="Detail" positionType="Float" x="351" y="0" width="79" height="20" uuid="a7003c51-ff05-4cb7-8700-08166c9ac18e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d65cbccd-71d7-433b-9f1f-dc6e03771e35"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{climate}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="422" y="0" width="127" height="20" uuid="beddecbd-0290-4234-b9a7-dd1248f083d8">
+				<reportElement style="Detail" positionType="Float" x="430" y="0" width="119" height="20" uuid="beddecbd-0290-4234-b9a7-dd1248f083d8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="29b23fd8-4498-43a8-bf84-0273a97e496a"/>
 				</reportElement>
 				<textElement>

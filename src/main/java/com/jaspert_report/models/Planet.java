@@ -13,10 +13,10 @@ public class Planet {
     private String name;
 
     @JsonProperty("rotation_period")
-    private Integer rotation_period;
+    private Integer rotation;
 
     @JsonProperty("orbital_period")
-    private Integer orbital_period;
+    private Integer orbital;
 
     @JsonProperty("diameter")
     private Integer diameter;
