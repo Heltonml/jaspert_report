@@ -1,17 +1,9 @@
 package com.jaspert_report.controllers;
 
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
-
 import com.jaspert_report.models.Planet;
 import com.jaspert_report.services.PlanetService;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,8 +27,7 @@ public class MainController {
     private PlanetService planetService;
 
     public List<Planet> getPlanets() {
-        List<Planet> planets = planetService.getPlanetsFromAPI();
-        return planets;
+        return planetService.getPlanetsFromAPI();
     }
 
     @GetMapping("/")
